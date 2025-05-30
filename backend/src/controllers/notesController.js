@@ -11,7 +11,7 @@ export async function getAllNotes(req, res){
   }
 }
 
-// Create a new note
+
 export async function createNote(req, res) {
   try {
     const { title, content } = req.body;
@@ -29,7 +29,7 @@ export async function createNote(req, res) {
   }
 }
 
-// Update an existing note
+
 export async function updateNote(req, res) {
   try {
     const { title, content } = req.body;
@@ -70,3 +70,4 @@ export async function deleteNote(req, res) {
     res.status(500).json({ message: "Error in DeleteNote Controller" });
   }
 }
+

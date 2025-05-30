@@ -16,18 +16,17 @@ app.use(express.json()) //without it you will not able to access json data from 
 const PORT = process.env.PORT || 5001;
 
 
-app.use((req,res,next)=>{
-    console.log(`Req method is ${req.method} & Req URL is ${req.url}`)
-    next()
-})
-app.use(rateLimiter)
+// app.use((req,res,next)=>{
+//     console.log(`Req method is ${req.method} & Req URL is ${req.url}`)
+//     next();
+// })
+
 app.use("/api/notes", notesRoutes);
+app.use(rateLimiter);
 
 connectDb().then(() => {
   app.listen(PORT,()=>{
-    console.log(`Server is connected at port no. ${PORT}`)
+    console.log(`Server is connected at port no: ${PORT}`)
   })
 });
-
-
 //
