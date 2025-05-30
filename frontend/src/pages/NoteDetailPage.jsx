@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router"; // ✅ Fixed import
-import api from "../lib/axios"; // ✅ Ensure this is correctly imported
+import { Link, useNavigate, useParams } from "react-router"; /
+import api from "../lib/axios"; 
 import toast from "react-hot-toast";
 import { ArrowLeftIcon, LoaderIcon, Trash2Icon } from "lucide-react";
 
 const NoteDetailPage = () => {
-  const [note, setNote] = useState({ title: "", content: "" }); // ✅ Ensure note isn't undefined initially
+  const [note, setNote] = useState({ title: "", content: "" }); 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -58,7 +58,7 @@ const NoteDetailPage = () => {
       await api.put(`/notes/${id}`, {
         title: note.title,
         content: note.content,
-      }); // ✅ Ensure correct data format
+      });
       toast.success("Note updated successfully");
       navigate("/");
     } catch (error) {
