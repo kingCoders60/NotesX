@@ -14,20 +14,23 @@ export async function getAllNotes(req, res){
 
 export async function createNote(req, res) {
   try {
-    const { title, content } = req.body;
-    if (!title || !content) {
+    if (!req.body || !req.body.title || !req.body.content) {
       return res
         .status(400)
-        .json({ message: "Title and Content are required" });
+        .json({ message: "Title and content are required!" });
     }
+
+    const { title, content } = req.body;
     const note = new Note({ title, content });
-    const saved = await note.save();
-    res.status(201).json(saved);
+
+    const savedNote = await note.save();
+    res.status(201).json(savedNote);
   } catch (error) {
-    console.error("Error creating note:", error);
-    res.status(500).json({ message: "Note creation failed" });
+    console.error("Error in createNote controller:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 }
+
 
 
 export async function updateNote(req, res) {
