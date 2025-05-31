@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router"; /
-import api from "../lib/axios"; 
+import { Link, useNavigate, useParams } from "react-router";
+import api from "../lib/axios";
 import toast from "react-hot-toast";
 import { ArrowLeftIcon, LoaderIcon, Trash2Icon } from "lucide-react";
 
 const NoteDetailPage = () => {
-  const [note, setNote] = useState({ title: "", content: "" }); 
+  const [note, setNote] = useState({ title: "", content: "" });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     const fetchNote = async () => {
@@ -28,8 +28,6 @@ const NoteDetailPage = () => {
 
     fetchNote();
   }, [id]);
-  
-  
 
   console.log({ note });
 
@@ -76,6 +74,7 @@ const NoteDetailPage = () => {
       </div>
     );
   }
+ 
 
   return (
     <div className="min-h-screen bg-base-200">
@@ -117,7 +116,7 @@ const NoteDetailPage = () => {
                 onChange={(e) => setNote({ ...note, content: e.target.value })}
               />
             </div>
-
+            
             <div className="card-actions justify-end">
               <button
                 className="btn btn-primary"

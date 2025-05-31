@@ -1,18 +1,18 @@
 import React from "react";
-import { Link } from "react-router"; // ✅ Fixed incorrect import
+import { Link } from "react-router"
 import { PenSquareIcon, Trash2Icon } from "lucide-react";
-import { formatDate } from "../lib/util"; // ✅ Ensure correct function import
-import api from "../lib/axios"; // ✅ Ensure Axios instance is correctly set up
+import { formateDate } from "../lib/util"; 
+import api from "../lib/axios"; 
 import { toast } from "react-hot-toast";
 
 const NoteCard = ({ note, setNotes }) => {
   const handleDelete = async (e, id) => {
-    e.preventDefault(); // ✅ Prevents default navigation issues
+    e.preventDefault(); 
     if (!window.confirm("Are you sure you want to delete this note?")) return;
 
     try {
       await api.delete(`/notes/${id}`);
-      setNotes((prev) => prev.filter((n) => n._id !== id)); // ✅ Removes deleted note from UI
+      setNotes((prev) => prev.filter((n) => n._id !== id)); 
       toast.success("Note deleted successfully!");
     } catch (error) {
       toast.error("Error deleting note!");
@@ -32,7 +32,7 @@ const NoteCard = ({ note, setNotes }) => {
 
         <div className="card-action flex justify-between items-center mt-4">
           <span className="text-xs text-base-content/60">
-            {formatDate(new Date(note.createdAt))}{" "}
+            {formateDate(new Date(note.createdAt))}{" "}
             {/* ✅ Corrected function call */}
           </span>
           <div className="flex items-center gap-2">
