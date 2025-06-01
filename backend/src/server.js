@@ -16,13 +16,9 @@ const __dirname = path.resolve();
 // middleware
 
 if (process.env.NODE_ENV !== "production") {
-  app.use(cors({ origin: "http://localhost:5173" }));
-} else {
   app.use(
     cors({
-      origin: ["http://localhost:5173", "https://thinkbeyond.onrender.com"], // ✅ Allow local and deployed frontend
-      methods: ["GET", "POST", "PUT", "DELETE"], // ✅ Allow all necessary methods
-      credentials: true, // ✅ If using authentication with cookies or headers
+      origin: "http://localhost:5173",
     })
   );
 }
