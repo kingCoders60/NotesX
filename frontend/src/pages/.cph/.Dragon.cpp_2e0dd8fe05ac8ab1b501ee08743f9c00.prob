@@ -1,0 +1,1 @@
+{"name":"Local: Dragon","url":"f:\\ThinkBoard\\frontend\\src\\pages\\Dragon.cpp","tests":[{"id":1749353820941,"input":"1\n2\n3\n4\n12\n","output":"12"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\ThinkBoard\\frontend\\src\\pages\\Dragon.cpp","group":"local","local":true}
